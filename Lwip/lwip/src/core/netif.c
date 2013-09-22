@@ -454,11 +454,12 @@ void netif_set_up(struct netif *netif)
     NETIF_STATUS_CALLBACK(netif);
     if (netif->flags & NETIF_FLAG_LINK_UP) {
 #if LWIP_ARP
-      /* For Ethernet network interfaces, we would like to send a "gratuitous ARP" */ 
-      if (netif->flags & (NETIF_FLAG_ETHARP)) {
-		//printf("NETIF_FLAG_LINK_UP, sending gratuitous ARP: %u \n",(netif->flags & NETIF_FLAG_LINK_UP));
-        etharp_gratuitous(netif);
-      }
+    	/* For Ethernet network interfaces, we would like to send a "gratuitous ARP" */
+    		if (netif->flags & (NETIF_FLAG_ETHARP))
+    		{
+    			//printf("NETIF_FLAG_LINK_UP, sending gratuitous ARP: %u \n",(netif->flags & NETIF_FLAG_LINK_UP));
+    			etharp_gratuitous(netif);
+    		}
 #endif /* LWIP_ARP */
 
 #if LWIP_IGMP

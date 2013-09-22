@@ -42,7 +42,7 @@
  * This file is part of the lwIP TCP/IP stack.
  *
  */
- 
+
 #include "lwip/opt.h"
 
 #if LWIP_ARP || LWIP_ETHERNET
@@ -1308,7 +1308,7 @@ ethernet_input(struct pbuf *p, struct netif *netif)
   return ERR_OK;
 
 free_and_return:
-  printf("Hit Free and Return \n");
+  //printf("Hit Free and Return \n");
   pbuf_free(p);
   return ERR_OK;
 }
