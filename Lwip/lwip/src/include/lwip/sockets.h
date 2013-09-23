@@ -34,14 +34,14 @@
 #ifndef __LWIP_SOCKETS_H__
 #define __LWIP_SOCKETS_H__
 
-#include "lwip/opt.h"
+#include "lwip/src/include/lwip/opt.h"
 
 #if LWIP_SOCKET /* don't build if not configured for use in lwipopts.h */
 
 #include <stddef.h> /* for size_t */
 
-#include "lwip/ip_addr.h"
-#include "lwip/inet.h"
+#include "lwip/src/include/lwip/ip_addr.h"
+#include "lwip/src/include/lwip/inet.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -39,23 +39,23 @@
  *
  */
 
-#include "lwip/opt.h"
+#include "lwip/src/include/lwip/opt.h"
 
-#include "lwip/timers.h"
-#include "lwip/tcp_impl.h"
+#include "lwip/src/include/lwip/timers.h"
+#include "lwip/src/include/lwip/tcp_impl.h"
 
 #if LWIP_TIMERS
 
-#include "lwip/def.h"
-#include "lwip/memp.h"
-#include "lwip/tcpip.h"
+#include "lwip/src/include/lwip/def.h"
+#include "lwip/src/include/lwip/memp.h"
+#include "lwip/src/include/lwip/tcpip.h"
 
-#include "ipv4/lwip/ip_frag.h"
-#include "netif/etharp.h"
-#include "lwip/dhcp.h"
-#include "ipv4/lwip/autoip.h"
-#include "ipv4/lwip/igmp.h"
-#include "lwip/dns.h"
+#include "lwip/src/include/ipv4/lwip/ip_frag.h"
+#include "lwip/src/include/netif/etharp.h"
+#include "lwip/src/include/lwip/dhcp.h"
+#include "lwip/src/include/ipv4/lwip/autoip.h"
+#include "lwip/src/include/ipv4/lwip/igmp.h"
+#include "lwip/src/include/lwip/dns.h"
 
 
 /** The one and only timeout list */

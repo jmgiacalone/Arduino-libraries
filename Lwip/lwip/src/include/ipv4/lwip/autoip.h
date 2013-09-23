@@ -44,13 +44,13 @@
 #ifndef __LWIP_AUTOIP_H__
 #define __LWIP_AUTOIP_H__
 
-#include "lwip/opt.h"
+#include "lwip/src/include/lwip/opt.h"
 
 #if LWIP_AUTOIP /* don't build if not configured for use in lwipopts.h */
 
-#include "lwip/netif.h"
-#include "lwip/udp.h"
-#include "netif/etharp.h"
+#include "lwip/src/include/lwip/netif.h"
+#include "lwip/src/include/lwip/udp.h"
+#include "lwip/src/include/netif/etharp.h"
 
 #ifdef __cplusplus
 extern "C" {

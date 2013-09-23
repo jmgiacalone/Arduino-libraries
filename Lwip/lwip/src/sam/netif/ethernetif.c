@@ -45,15 +45,15 @@
  *
  */
 
-#include "lwip/opt.h"
-#include "lwip/def.h"
-#include "lwip/mem.h"
-#include "lwip/pbuf.h"
-#include "lwip/sys.h"
-#include <lwip/stats.h>
-#include <lwip/snmp.h>
-#include "netif/etharp.h"
-#include "netif/ppp_oe.h"
+#include "lwip/src/include/lwip/opt.h"
+#include "lwip/src/include/lwip/def.h"
+#include "lwip/src/include/lwip/mem.h"
+#include "lwip/src/include/lwip/pbuf.h"
+#include "lwip/src/include/lwip/sys.h"
+#include <lwip/src/include/lwip/stats.h>
+#include <lwip/src/include/lwip/snmp.h>
+#include "lwip/src/include/netif/etharp.h"
+#include "lwip/src/include/netif/ppp_oe.h"
 
 //#include "pmc.h"
 //#include "include/emac.h"
@@ -61,7 +61,7 @@
 //#include "include/rstc.h"
 #include "source/rstc.c"
 #include "ethernet_phy.h"
-#include "netif/ethernetif.h"
+#include "lwip/src/sam/include/netif/ethernetif.h"
 //#include "sysclk.h"
 #include <string.h>
 #include "conf_eth.h"

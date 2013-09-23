@@ -32,17 +32,17 @@
 #ifndef __LWIP_TCPIP_H__
 #define __LWIP_TCPIP_H__
 
-#include "lwip/opt.h"
+#include "lwip/src/include/lwip/opt.h"
 
 #if !NO_SYS /* don't build if not configured for use in lwipopts.h */
 
-#include "lwip/api_msg.h"
-#include "lwip/netifapi.h"
-#include "lwip/pbuf.h"
-#include "lwip/api.h"
-#include "lwip/sys.h"
-#include "lwip/timers.h"
-#include "lwip/netif.h"
+#include "lwip/src/include/lwip/api_msg.h"
+#include "lwip/src/include/lwip/netifapi.h"
+#include "lwip/src/include/lwip/pbuf.h"
+#include "lwip/src/include/lwip/api.h"
+#include "lwip/src/include/lwip/sys.h"
+#include "lwip/src/include/lwip/timers.h"
+#include "lwip/src/include/lwip/netif.h"
 
 #ifdef __cplusplus
 extern "C" {

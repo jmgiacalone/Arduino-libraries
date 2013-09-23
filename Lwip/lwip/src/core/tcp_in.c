@@ -41,20 +41,20 @@
  *
  */
 
-#include "lwip/opt.h"
+#include "lwip/src/include/lwip/opt.h"
 
 #if LWIP_TCP /* don't build if not configured for use in lwipopts.h */
 
-#include "lwip/tcp_impl.h"
-#include "lwip/def.h"
-#include "ipv4/lwip/ip_addr.h"
-#include "lwip/netif.h"
-#include "lwip/mem.h"
-#include "lwip/memp.h"
-#include "ipv4/lwip/inet_chksum.h"
-#include "lwip/stats.h"
-#include "lwip/snmp.h"
-#include "arch/perf.h"
+#include "lwip/src/include/lwip/tcp_impl.h"
+#include "lwip/src/include/lwip/def.h"
+#include "lwip/src/include/ipv4/lwip/ip_addr.h"
+#include "lwip/src/include/lwip/netif.h"
+#include "lwip/src/include/lwip/mem.h"
+#include "lwip/src/include/lwip/memp.h"
+#include "lwip/src/include/ipv4/lwip/inet_chksum.h"
+#include "lwip/src/include/lwip/stats.h"
+#include "lwip/src/include/lwip/snmp.h"
+#include "lwip/src/sam/include/arch/perf.h"
 
 /* These variables are global to all functions involved in the input
    processing of TCP segments. They are set by the tcp_input()

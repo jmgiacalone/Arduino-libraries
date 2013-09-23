@@ -35,10 +35,10 @@
 #ifndef __LWIP_IGMP_H__
 #define __LWIP_IGMP_H__
 
-#include "lwip/opt.h"
-#include "ipv4/lwip/ip_addr.h"
-#include "lwip/netif.h"
-#include "lwip/pbuf.h"
+#include "lwip/src/include/lwip/opt.h"
+#include "lwip/src/include/ipv4/lwip/ip_addr.h"
+#include "lwip/src/include/lwip/netif.h"
+#include "lwip/src/include/lwip/pbuf.h"
 
 #if LWIP_IGMP /* don't build if not configured for use in lwipopts.h */
 

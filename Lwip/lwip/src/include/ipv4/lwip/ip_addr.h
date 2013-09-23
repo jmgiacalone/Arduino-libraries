@@ -32,8 +32,8 @@
 #ifndef __LWIP_IP_ADDR_H__
 #define __LWIP_IP_ADDR_H__
 
-#include "lwip/opt.h"
-#include "lwip/def.h"
+#include "lwip/src/include/lwip/opt.h"
+#include "lwip/src/include/lwip/def.h"
 
 #ifdef __cplusplus
 extern "C" {

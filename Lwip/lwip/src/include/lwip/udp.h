@@ -32,14 +32,14 @@
 #ifndef __LWIP_UDP_H__
 #define __LWIP_UDP_H__
 
-#include "lwip/opt.h"
+#include "lwip/src/include/lwip/opt.h"
 
 #if LWIP_UDP /* don't build if not configured for use in lwipopts.h */
 
-#include "lwip/pbuf.h"
-#include "lwip/netif.h"
-#include "ipv4/lwip/ip_addr.h"
-#include "ipv4/lwip/ip.h"
+#include "lwip/src/include/lwip/pbuf.h"
+#include "lwip/src/include/lwip/netif.h"
+#include "lwip/src/include/ipv4/lwip/ip_addr.h"
+#include "lwip/src/include/ipv4/lwip/ip.h"
 
 #ifdef __cplusplus
 extern "C" {

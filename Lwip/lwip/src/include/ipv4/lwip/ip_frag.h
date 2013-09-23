@@ -33,12 +33,12 @@
 #ifndef __LWIP_IP_FRAG_H__
 #define __LWIP_IP_FRAG_H__
 
-#include "lwip/opt.h"
-#include "lwip/err.h"
-#include "lwip/pbuf.h"
-#include "lwip/netif.h"
-#include "ipv4/lwip/ip_addr.h"
-#include "ipv4/lwip/ip.h"
+#include "lwip/src/include/lwip/opt.h"
+#include "lwip/src/include/lwip/err.h"
+#include "lwip/src/include/lwip/pbuf.h"
+#include "lwip/src/include/lwip/netif.h"
+#include "lwip/src/include/ipv4/lwip/ip_addr.h"
+#include "lwip/src/include/ipv4/lwip/ip.h"
 
 #ifdef __cplusplus
 extern "C" {

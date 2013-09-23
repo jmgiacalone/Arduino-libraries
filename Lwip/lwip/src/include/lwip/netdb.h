@@ -29,14 +29,14 @@
 #ifndef __LWIP_NETDB_H__
 #define __LWIP_NETDB_H__
 
-#include "lwip/opt.h"
+#include "lwip/src/include/lwip/opt.h"
 
 #if LWIP_DNS && LWIP_SOCKET
 
 #include <stddef.h> /* for size_t */
 
-#include "lwip/inet.h"
-#include "lwip/sockets.h"
+#include "lwip/src/include/lwip/inet.h"
+#include "lwip/src/include/lwip/sockets.h"
 
 #ifdef __cplusplus
 extern "C" {

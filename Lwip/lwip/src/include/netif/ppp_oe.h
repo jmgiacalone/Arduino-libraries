@@ -70,11 +70,11 @@
 #ifndef PPP_OE_H
 #define PPP_OE_H
 
-#include "lwip/opt.h"
+#include "lwip/src/include/lwip/opt.h"
 
 #if PPPOE_SUPPORT > 0
 
-#include "netif/etharp.h"
+#include "lwip/src/include/netif/etharp.h"
 
 #ifdef PACK_STRUCT_USE_INCLUDES
 #  include "arch/bpstruct.h"

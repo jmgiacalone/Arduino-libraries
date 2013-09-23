@@ -32,7 +32,7 @@
 #ifndef __LWIP_API_H__
 #define __LWIP_API_H__
 
-#include "lwip/opt.h"
+#include "lwip/src/include/lwip/opt.h"
 
 #if LWIP_NETCONN /* don't build if not configured for use in lwipopts.h */
 

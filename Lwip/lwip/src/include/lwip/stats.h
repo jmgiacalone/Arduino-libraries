@@ -32,10 +32,10 @@
 #ifndef __LWIP_STATS_H__
 #define __LWIP_STATS_H__
 
-#include "lwip/opt.h"
+#include "lwip/src/include/lwip/opt.h"
 
-#include "lwip/mem.h"
-#include "lwip/memp.h"
+#include "lwip/src/include/lwip/mem.h"
+#include "lwip/src/include/lwip/memp.h"
 
 #ifdef __cplusplus
 extern "C" {

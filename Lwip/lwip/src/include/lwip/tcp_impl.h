@@ -32,17 +32,17 @@
 #ifndef __LWIP_TCP_IMPL_H__
 #define __LWIP_TCP_IMPL_H__
 
-#include "lwip/opt.h"
+#include "lwip/src/include/lwip/opt.h"
 
 #if LWIP_TCP /* don't build if not configured for use in lwipopts.h */
 
-#include "lwip/tcp.h"
-#include "lwip/sys.h"
-#include "lwip/mem.h"
-#include "lwip/pbuf.h"
-#include "ipv4/lwip/ip.h"
-#include "ipv4/lwip/icmp.h"
-#include "lwip/err.h"
+#include "lwip/src/include/lwip/tcp.h"
+#include "lwip/src/include/lwip/sys.h"
+#include "lwip/src/include/lwip/mem.h"
+#include "lwip/src/include/lwip/pbuf.h"
+#include "lwip/src/include/ipv4/lwip/ip.h"
+#include "lwip/src/include/ipv4/lwip/icmp.h"
+#include "lwip/src/include/lwip/err.h"
 
 #ifdef __cplusplus
 extern "C" {

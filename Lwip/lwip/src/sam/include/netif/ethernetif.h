@@ -45,10 +45,10 @@
 #ifndef ETHERNETIF_H_INCLUDED
 #define ETHERNETIF_H_INCLUDED
 
-#include "lwip/netif.h"
-#include "ipv4/lwip/ip_addr.h"
-#include "lwip/err.h"
-#include "netif/etharp.h"
+#include "lwip/src/include/lwip/netif.h"
+#include "lwip/src/include/ipv4/lwip/ip_addr.h"
+#include "lwip/src/include/lwip/err.h"
+#include "lwip/src/include/netif/etharp.h"
 
 err_t ethernetif_init(struct netif *netif);
 

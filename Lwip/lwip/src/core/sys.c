@@ -36,9 +36,9 @@
  *
  */
 
-#include "lwip/opt.h"
+#include "lwip/src/include/lwip/opt.h"
 
-#include "lwip/sys.h"
+#include "lwip/src/include/lwip/sys.h"
 
 /* Most of the functions defined in sys.h must be implemented in the
  * architecture-dependent file sys_arch.c */
