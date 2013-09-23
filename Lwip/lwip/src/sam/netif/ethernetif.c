@@ -67,6 +67,8 @@
 #include "conf_eth.h"
 
 #include "SamNonDuePin.h"
+
+//void my_ethernetif_input(void * pvParameters);
 //#include "gpio.h"
 
 /** Define those to better describe your network interface */
@@ -380,31 +382,31 @@ void ethernetif_input(void * pvParameters)
 	struct netif      *netif = (struct netif *)pvParameters;
 	struct pbuf       *p;
 
-#ifdef FREERTOS_USED
-	for( ;; ) {
-		do {
-#endif
+//#ifdef FREERTOS_USED
+//	for( ;; ) {
+//		do {
+//#endif
 			/* move received packet into a new pbuf */
 			p = low_level_input( netif );
 			if( p == NULL ) {
-#ifdef FREERTOS_USED
-				/* No packet could be read.  Wait a for an interrupt to tell us
-				there is more data available. */
-				vTaskDelay(100);
-			}
-		}while( p == NULL );
-#else
+//#ifdef FREERTOS_USED
+//				/* No packet could be read.  Wait a for an interrupt to tell us
+//				there is more data available. */
+//				vTaskDelay(100);
+//			}
+//		}while( p == NULL );
+//#else
 				return;
 			}
-#endif
+//#endif
 
 		if( ERR_OK != netif->input( p, netif ) ) {
 			pbuf_free(p);
 			p = NULL;
 		}
-#ifdef FREERTOS_USED
-	}
-#endif
+//#ifdef FREERTOS_USED
+//	}
+//#endif
 }
 
 
