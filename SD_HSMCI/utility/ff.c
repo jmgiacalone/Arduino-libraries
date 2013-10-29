@@ -1870,7 +1870,7 @@ void get_fileinfo (		/* No return code */
 #endif
 			*p++ = c;
 		}
-		if (dir[8] != ' ') {		/* Copy name extension */
+		if (dir[8] != ' ') { 	/* Copy name extension */
 			*p++ = '.';
 			for (i = 8; i < 11; i++) {
 				c = dir[i];
@@ -1885,6 +1885,7 @@ void get_fileinfo (		/* No return code */
 				*p++ = c;
 			}
 		}
+
 		fno->fattrib = dir[DIR_Attr];				/* Attribute */
 		fno->fsize = LD_DWORD(dir+DIR_FileSize);	/* Size */
 		fno->fdate = LD_WORD(dir+DIR_WrtDate);		/* Date */
@@ -1892,28 +1893,33 @@ void get_fileinfo (		/* No return code */
 	}
 	*p = 0;		/* Terminate SFN str by a \0 */
 
-#if _USE_LFN
-	if (fno->lfname && fno->lfsize) {
-		TCHAR *tp = fno->lfname;
-		WCHAR w, *lfn;
+//************ Long file names commented out by AB; seems to be #defined true here, but not
+// Wherever the RepRap code is picking up the #define; hence this writes beyond the memory
+// allocated to fno
 
-		i = 0;
-		if (dj->sect && dj->lfn_idx != 0xFFFF) {/* Get LFN if available */
-			lfn = dj->lfn;
-			while ((w = *lfn++) != 0) {			/* Get an LFN char */
-#if !_LFN_UNICODE
-				w = ff_convert(w, 0);			/* Unicode -> OEM conversion */
-				if (!w) { i = 0; break; }		/* Could not convert, no LFN */
-				if (_DF1S && w >= 0x100)		/* Put 1st byte if it is a DBC (always false on SBCS cfg) */
-					tp[i++] = (TCHAR)(w >> 8);
-#endif
-				if (i >= fno->lfsize - 1) { i = 0; break; }	/* Buffer overflow, no LFN */
-				tp[i++] = (TCHAR)w;
-			}
-		}
-		tp[i] = 0;	/* Terminate the LFN str by a \0 */
-	}
-#endif
+//#if _USE_LFN
+//	if (fno->lfname && fno->lfsize) {
+//		TCHAR *tp = fno->lfname;
+//		WCHAR w, *lfn;
+//
+//		i = 0;
+//		if (dj->sect && dj->lfn_idx != 0xFFFF) {/* Get LFN if available */
+//			lfn = dj->lfn;
+//			while ((w = *lfn++) != 0) {			/* Get an LFN char */
+//#if !_LFN_UNICODE
+//				w = ff_convert(w, 0);			/* Unicode -> OEM conversion */
+//				if (!w) { i = 0; break; }		/* Could not convert, no LFN */
+//				if (_DF1S && w >= 0x100)		/* Put 1st byte if it is a DBC (always false on SBCS cfg) */
+//					tp[i++] = (TCHAR)(w >> 8);
+//#endif
+//				if (i >= fno->lfsize - 1) { i = 0; break; }	/* Buffer overflow, no LFN */
+//				tp[i++] = (TCHAR)w;
+//			}
+//		}
+//		tp[i] = 0;	/* Terminate the LFN str by a \0 */
+//	}
+//#endif
+
 }
 #endif /* _FS_MINIMIZE <= 1 */
 
@@ -3015,7 +3021,6 @@ FRESULT f_readdir (
 {
 	FRESULT res;
 	DEF_NAMEBUF;
-
 
 	res = validate(dj->fs, dj->id);			/* Check validity of the object */
 	if (res == FR_OK) {

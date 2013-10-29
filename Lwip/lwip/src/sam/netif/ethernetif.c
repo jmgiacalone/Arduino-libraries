@@ -300,6 +300,7 @@ static err_t low_level_output(struct netif *netif, struct pbuf *p)
 	return ERR_OK;
 }
 
+
 /**
  * \brief Should allocate a pbuf and transfer the bytes of the incoming
  * packet from the interface into the pbuf.
@@ -377,56 +378,56 @@ static struct pbuf *low_level_input(struct netif *netif)
  * ethernetif.
  */
 
-void ethernetif_input(void * pvParameters)
-{
-	struct netif      *netif = (struct netif *)pvParameters;
-	struct pbuf       *p;
-
-	/* move received packet into a new pbuf */
-	p = low_level_input( netif );
-	if( p == NULL )
-		return;
-
-	if( ERR_OK != netif->input( p, netif ) )
-	{
-		pbuf_free(p);
-		p = NULL;
-	}
-}
-
-
 //void ethernetif_input(void * pvParameters)
 //{
-//
 //	struct netif      *netif = (struct netif *)pvParameters;
 //	struct pbuf       *p;
 //
-//#ifdef FREERTOS_USED
-//	for( ;; ) {
-//		do {
-//#endif
-//			/* move received packet into a new pbuf */
-//			p = low_level_input( netif );
-//			if( p == NULL ) {
-//#ifdef FREERTOS_USED
-//				/* No packet could be read.  Wait a for an interrupt to tell us
-//				there is more data available. */
-//				vTaskDelay(100);
-//			}
-//		}while( p == NULL );
-//#else
-//				return;
-//			}
-//#endif
+//	/* move received packet into a new pbuf */
+//	p = low_level_input( netif );
+//	if( p == NULL )
+//		return;
 //
-//		if( ERR_OK != netif->input( p, netif ) ) {
-//			pbuf_free(p);
-//			p = NULL;
-//		}
-//#ifdef FREERTOS_USED
+//	if( ERR_OK != netif->input( p, netif ) )
+//	{
+//		pbuf_free(p);
+//		p = NULL;
 //	}
-//#endif
 //}
+
+
+void ethernetif_input(void * pvParameters)
+{
+
+	struct netif      *netif = (struct netif *)pvParameters;
+	struct pbuf       *p;
+
+#ifdef FREERTOS_USED
+	for( ;; ) {
+		do {
+#endif
+			/* move received packet into a new pbuf */
+			p = low_level_input( netif );
+			if( p == NULL ) {
+#ifdef FREERTOS_USED
+				/* No packet could be read.  Wait a for an interrupt to tell us
+				there is more data available. */
+				vTaskDelay(100);
+			}
+		}while( p == NULL );
+#else
+				return;
+			}
+#endif
+
+		if( ERR_OK != netif->input( p, netif ) ) {
+			pbuf_free(p);
+			p = NULL;
+		}
+#ifdef FREERTOS_USED
+	}
+#endif
+}
 
 
 

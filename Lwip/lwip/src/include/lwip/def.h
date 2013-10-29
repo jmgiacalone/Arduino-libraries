@@ -44,7 +44,8 @@ extern "C" {
 #define LWIP_MIN(x , y)  (((x) < (y)) ? (x) : (y))
 
 #ifndef NULL
-#define NULL ((void *)0)
+#define NULL 0
+//#define NULL ((void *)0)
 #endif
 
 /** Get the absolute difference between 2 u32_t values (correcting overflows)

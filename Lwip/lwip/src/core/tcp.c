@@ -2,7 +2,7 @@
  * @file
  * Transmission Control Protocol for IP
  *
- * This file contains common functions for the TCP implementation, such as functinos
+ * This file   contains common functions for the TCP implementation, such as functinos
  * for manipulating the data structures and the TCP timer functions. TCP functions
  * related to input and output is found in tcp_in.c and tcp_out.c respectively.
  *
@@ -42,7 +42,11 @@
 
 #include "lwip/src/include/lwip/opt.h"
 
+#pragma message("Testing LWIP_TCP")
+
 #if LWIP_TCP /* don't build if not configured for use in lwipopts.h */
+
+#pragma message("LWIP_TCP is true")
 
 #include "lwip/src/include/lwip/def.h"
 #include "lwip/src/include/lwip/mem.h"
