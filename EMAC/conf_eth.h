@@ -72,10 +72,15 @@
 
 /** WAN Address: 192.168.0.2 */
 /* The IP address being used. */
+//*******************************************************************************************
+// Commented out by AB - see ethernet_sam.c
+/*
 #define ETHERNET_CONF_IPADDR0                         192
 #define ETHERNET_CONF_IPADDR1                         168
 #define ETHERNET_CONF_IPADDR2                         1
 #define ETHERNET_CONF_IPADDR3                         14
+*/
+//********************************************************************************************
 
 /** WAN gateway: 192.168.0.1 */
 /** The gateway address being used. */
