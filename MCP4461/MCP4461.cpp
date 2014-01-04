@@ -17,17 +17,23 @@ GPL v3
 #include <stdio.h>
 #include <Wire.h>
 
-//constructors just set the address
+//ensure you call begin() before any other functions but note
+//begin can only be called once for all MCP* objects as it initialises
+//the local master through the Wire library
+//if the MCP4461 does not have a default address, call set address before
+//trying to communicate
 MCP4461::MCP4461() {
   _mcp4461_address = DEFAULT_ADDRESS;
 }
 
-MCP4461::MCP4461(uint8_t mcp4461_addr) {
-  _mcp4461_address = mcp4461_addr; 
-}
-
+//initialise the I2C interface as master ie local address is 0
 void MCP4461::begin() {
     Wire1.begin();
+}
+
+//set the MCP4461 address
+void MCP4461::setMCP4461Address(uint8_t mcp4461_addr) {
+	_mcp4461_address = mcp4461_addr;
 }
 
 void MCP4461::setVolatileWiper(uint8_t wiper, uint16_t wiper_value){
@@ -60,7 +66,7 @@ void MCP4461::setVolatileWiper(uint8_t wiper, uint16_t wiper_value){
   Wire1.write(d_byte);
   Wire1.endTransmission(); //do not release bus
   }
-  
+
 void MCP4461::setNonVolatileWiper(uint8_t wiper, uint16_t wiper_value){
   uint16_t value = wiper_value;
   if (value > 0xFF) value = 0x100;

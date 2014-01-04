@@ -32,8 +32,8 @@
 class MCP4461{
 public:
   MCP4461();
-  MCP4461(uint8_t);  
   void begin();
+  void setMCP4461Address(uint8_t);
   void setVolatileWiper(uint8_t, uint16_t);
   void setNonVolatileWiper(uint8_t, uint16_t);
   void setVolatileWipers(uint16_t);
