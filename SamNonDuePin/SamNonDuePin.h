@@ -38,16 +38,17 @@ static const uint8_t X3  = 3;
 static const uint8_t X4  = 4;
 static const uint8_t X5  = 5;
 static const uint8_t X6  = 6;
-static const uint8_t X7  = 7; //not used
+static const uint8_t X7  = 7;
+static const uint8_t X8  = 8;
 //HSMCI
-static const uint8_t PIN_HSMCI_MCCDA_GPIO  = 8;
-static const uint8_t PIN_HSMCI_MCCK_GPIO  = 9;
-static const uint8_t PIN_HSMCI_MCDA0_GPIO  = 10;
-static const uint8_t PIN_HSMCI_MCDA1_GPIO  = 11;
-static const uint8_t PIN_HSMCI_MCDA2_GPIO  = 12;
-static const uint8_t PIN_HSMCI_MCDA3_GPIO  = 13;
-static const uint8_t PIN_EMAC_EREFCK_GPIO  = 14;
+static const uint8_t PIN_HSMCI_MCCDA_GPIO  = 9;
+static const uint8_t PIN_HSMCI_MCCK_GPIO  = 10;
+static const uint8_t PIN_HSMCI_MCDA0_GPIO  = 11;
+static const uint8_t PIN_HSMCI_MCDA1_GPIO  = 12;
+static const uint8_t PIN_HSMCI_MCDA2_GPIO  = 13;
+static const uint8_t PIN_HSMCI_MCDA3_GPIO  = 14;
 //EMAC
+static const uint8_t PIN_EMAC_EREFCK_GPIO  = 15; //What is this one for?
 static const uint8_t PIN_EMAC_EREFCK  = 15;
 static const uint8_t PIN_EMAC_ETXEN  = 16;
 static const uint8_t PIN_EMAC_ETX0  = 17;
