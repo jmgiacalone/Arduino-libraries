@@ -50,6 +50,8 @@
 #include "lwip/src/include/lwip/err.h"
 #include "lwip/src/include/netif/etharp.h"
 
+bool ethernetif_phy_link_status();//*****************************AB
+
 err_t ethernetif_init(struct netif *netif);
 
 void ethernetif_input(void *pv_parameters);

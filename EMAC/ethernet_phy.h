@@ -62,6 +62,21 @@
 /**INDENT-ON**/
 /// @endcond
 
+ //*****************************AB
+ /**
+  * \brief Read a Register of the PHY.
+  *
+  * \param p_emac   Pointer to the EMAC instance.
+  * \param uc_phy_addr PHY address.
+  * \param ul_phy_reg PHY Register to be read
+  * \param p_ul_reg_cont
+  *
+  * Return Return EMAC_OK if successfully read, EMAC_TIMEOUT if timeout.
+  */
+ uint8_t ethernet_phy_read_register(Emac *p_emac, uint8_t uc_phy_addr, uint32_t ul_phy_reg, uint32_t *p_ul_reg_cont);
+
+ //*****************************AB
+
 /**
  * \brief Perform a HW initialization to the PHY ( via RSTC ) and set up clocks.
  *

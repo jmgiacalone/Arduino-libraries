@@ -107,12 +107,41 @@ struct ethernetif {
 	/* Add whatever per-interface state that is needed here. */
 };
 
+//*****************************AB
+
+bool ethernetif_phy_link_status() {
+
+uint32_t p_ul_reg_cont;
+/* Read the basic Configuration register (0x1 = MII_BMSR */
+if (ethernet_phy_read_register(EMAC, BOARD_EMAC_PHY_ADDR,0x1,&p_ul_reg_cont) != EMAC_OK) {
+LWIP_DEBUGF(LWIP_DBG_TRACE, ("PHY Register Read ERROR!\r"));
+return false;
+}//  MII_LINK_STATUS       (1u << 2) /**< Link Status */
+if(p_ul_reg_cont & (1u << 2) )
+return true;
+else
+return false;
+}
+//*****************************AB
+
+
 /**
  * \brief EMAC interrupt handler.
  */
 void EMAC_Handler(void)
 {
 	emac_handler(&gs_emac_dev);
+}
+
+static bool ResettingEther()
+{
+	return (rstc_get_status(RSTC) & RSTC_SR_NRSTL);
+}
+
+void ResetEther()
+{
+	rstc_set_external_reset(RSTC, 15);
+		rstc_reset_extern(RSTC);
 }
 
 /**
@@ -181,10 +210,14 @@ static void low_level_init(struct netif *netif)
 #endif
 
 	/* Reset PHY */
-	rstc_set_external_reset(RSTC, 13);      /* (2^(13+1))/32768 */
-	rstc_reset_extern(RSTC);
-	while (rstc_get_status(RSTC) & RSTC_SR_NRSTL) {
-	}
+	//rstc_set_external_reset(RSTC, 13);      /* (2^(13+1))/32768 */
+//	rstc_set_external_reset(RSTC, 15);
+//	rstc_reset_extern(RSTC);
+//	while (rstc_get_status(RSTC) & RSTC_SR_NRSTL) {
+//	}
+
+//	ResetEther();
+	while(ResettingEther()){}
 
 	/* Wait for PHY to be ready (CAT811: Max400ms) */
 	ul_dealy = SystemCoreClock / 6;

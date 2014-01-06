@@ -76,6 +76,42 @@ extern "C" {
 /* Ethernet PHY operation timeout */
 #define ETH_PHY_TIMEOUT 10
 
+
+//*****************************AB
+/**
+ * \brief Read a Register of the PHY.
+ *
+ * \param p_emac   Pointer to the EMAC instance.
+ * \param uc_phy_addr PHY address.
+ * \param ul_phy_reg PHY Register to be read
+ *
+ * Return Register contents
+ */
+uint8_t ethernet_phy_read_register(Emac *p_emac, uint8_t uc_phy_addr, uint32_t ul_phy_reg,uint32_t *p_ul_reg_cont)
+{
+uint32_t ul_phy_register;
+uint8_t uc_phy_address, uc_speed, uc_fd;
+uint8_t uc_rc = EMAC_TIMEOUT;
+
+emac_enable_management(p_emac, true);
+
+uc_phy_address = uc_phy_addr;
+ul_phy_register = ul_phy_reg;
+
+uc_rc = emac_phy_read(p_emac, uc_phy_address, ul_phy_reg, p_ul_reg_cont);
+if (uc_rc != EMAC_OK) {
+/* Disable PHY management and start the EMAC transfer */
+emac_enable_management(p_emac, false);
+return uc_rc;
+}
+/* Start the EMAC transfers */
+emac_enable_management(p_emac, false);
+return uc_rc;
+}
+//*****************************AB
+
+
+
 /**
  * \brief Find a valid PHY Address ( from addrStart to 31 ).
  *
