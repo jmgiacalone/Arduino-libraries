@@ -89,7 +89,8 @@
 #define NET_RW_BUFF_SIZE 1536
 
 /** The MAC address used for the test */
-static u8_t gs_uc_mac_address[] =
+// ***AB - gs_uc_mac_address used to be static.  Removed so it can be hacked
+u8_t gs_uc_mac_address[] =
 { ETHERNET_CONF_ETHADDR0, ETHERNET_CONF_ETHADDR1, ETHERNET_CONF_ETHADDR2,
   ETHERNET_CONF_ETHADDR3, ETHERNET_CONF_ETHADDR4, ETHERNET_CONF_ETHADDR5};
 
@@ -108,6 +109,14 @@ struct ethernetif {
 };
 
 //*****************************AB
+
+void RepRapNetworkSetMACAddress(const u8_t mac[])
+{
+	int8_t i;
+
+	for(i = 0; i < 6; i++)
+		gs_uc_mac_address[i] = mac[i];
+}
 
 bool ethernetif_phy_link_status() {
 
